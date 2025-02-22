@@ -5,6 +5,7 @@ public class Main {
 
         System.out.println("Не забывайте после правок нажимать \"request review\"");
         someMethod();
+        System.out.println(4444);
     }
 
     private static void someMethod(){
