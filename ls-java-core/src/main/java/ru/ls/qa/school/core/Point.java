@@ -14,4 +14,9 @@ public class Point {
         double distanceMath = Math.sqrt((Math.pow((this.x - point.x), 2)) + (Math.pow((this.y - point.y), 2)));
         return distanceMath;
     }
+
+    @Override
+    public String toString(){
+        return "(" + this.x + ";" + this.y +")";
+    }
 }
