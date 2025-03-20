@@ -7,17 +7,34 @@
     <groupId>ru.ls.qa.school.addressbook</groupId>
     <artifactId>addressbook-web-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <parent>
         <groupId>ru.ls.qa.school</groupId>
         <artifactId>ls-aqa-school</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <properties>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <jNotUnit-core.version>release-1.05</jNotUnit-core.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.13nadcatiy</groupId>
+            <artifactId>jNotUnit-core</artifactId>
+            <version>${jNotUnit-core.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
