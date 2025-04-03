@@ -9,6 +9,7 @@ public class OddTaskTest {
     @Test
     @DisplayName("Четное число")
     public void even(){
+        assertFalse(isOdd(0));
         assertFalse(isOdd(2));
         assertFalse(isOdd(4));
         assertFalse(isOdd(6));
