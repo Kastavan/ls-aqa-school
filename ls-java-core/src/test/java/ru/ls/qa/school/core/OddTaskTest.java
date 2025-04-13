@@ -1,3 +1,5 @@
+package ru.ls.qa.school.core;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
