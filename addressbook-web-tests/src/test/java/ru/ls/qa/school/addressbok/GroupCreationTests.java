@@ -14,25 +14,55 @@ public class GroupCreationTests {
     @BeforeAll
     static void openPage() {
         Selenide.open("http://localhost/addressbook");
-        $(By.name("user")).setValue("admin");
-        $(By.name("pass")).setValue("secret");
+        login("admin", "secret");
+    }
+
+    private static void login(String username, String password) {
+        $(By.name("user")).setValue(username);
+        $(By.name("pass")).setValue(password);
         $("#LoginForm > input[type=submit]:nth-child(7)").click();
     }
 
     @AfterAll
     static void closeWindow() {
+        logout();
         Selenide.closeWebDriver();
+    }
+
+    private static void logout() {
+        $("#top > form > a").click();
     }
 
     @Test
     public void newTest() {
-        $("#nav > ul > li.admin > a").click();
-        $("#content > form > input[type=submit]:nth-child(1)").click();
-        $(By.name("group_name")).setValue("test1");
-        $(By.name("group_header")).setValue("test2");
-        $(By.name("group_footer")).setValue("test3");
-        $("#content > form > input[type=submit]:nth-child(11)").click();
+        gotoGroupPage();
+        initGroupCreation();
+        fillGroupForm(new GroupData("test1", "test2", "test3"));
+        submitGroupCreation();
+        returnToGroupPage();
+
+
+    }
+
+    private static void returnToGroupPage() {
         $("#content > div > i > a").click();
-        $("#top > form > a").click();
+    }
+
+    private static void submitGroupCreation() {
+        $("#content > form > input[type=submit]:nth-child(11)").click();
+    }
+
+    private static void fillGroupForm(GroupData groupData) {
+        $(By.name("group_name")).setValue(groupData.name());
+        $(By.name("group_header")).setValue(groupData.header());
+        $(By.name("group_footer")).setValue(groupData.footer());
+    }
+
+    private static void initGroupCreation() {
+        $("#content > form > input[type=submit]:nth-child(1)").click();
+    }
+
+    private static void gotoGroupPage() {
+        $("#nav > ul > li.admin > a").click();
     }
 }
