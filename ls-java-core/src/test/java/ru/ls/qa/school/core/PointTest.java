@@ -1,8 +1,9 @@
+package ru.ls.qa.school.core;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
-import java.awt.*;
+import java.awt.Point;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
