@@ -14,6 +14,9 @@ public class GroupCreationTests {
     @BeforeAll
     static void openPage() {
         Selenide.open("http://localhost/addressbook");
+        $(By.name("user")).setValue("admin");
+        $(By.name("pass")).setValue("secret");
+        $("#LoginForm > input[type=submit]:nth-child(7)").click();
     }
 
     @AfterAll
@@ -23,9 +26,6 @@ public class GroupCreationTests {
 
     @Test
     public void newTest() {
-        $(By.name("user")).setValue("admin");
-        $(By.name("pass")).setValue("secret");
-        $("#LoginForm > input[type=submit]:nth-child(7)").click();
         $("#nav > ul > li.admin > a").click();
         $("#content > form > input[type=submit]:nth-child(1)").click();
         $(By.name("group_name")).setValue("test1");
