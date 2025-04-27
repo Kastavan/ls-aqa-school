@@ -87,4 +87,12 @@ public class TestBase {
     protected static void addNewContactPage() {
         $("#nav > ul > li:nth-child(2) > a").click();
     }
+
+    protected static void deleteGroup() {
+        $("#content > form > input[type=submit]:nth-child(2)").click();
+    }
+
+    protected static void selectGroup() {
+        $("#content > form > span:nth-child(5) > input[type=checkbox]").click();
+    }
 }
