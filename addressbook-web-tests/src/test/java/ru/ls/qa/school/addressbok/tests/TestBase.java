@@ -5,16 +5,16 @@ import org.junit.jupiter.api.BeforeAll;
 import ru.ls.qa.school.addressbok.appmanager.ApplicationManager;
 
 public class TestBase {
-    //protected final ApplicationManager app = new ApplicationManager();
+    protected static final ApplicationManager app = new ApplicationManager();
 
     @BeforeAll
     static void openPage() {
-        ApplicationManager.init();
+        app.init();
     }
 
     @AfterAll
     static void closeWindow() {
-        ApplicationManager.stop();
+        app.stop();
     }
 
 }
