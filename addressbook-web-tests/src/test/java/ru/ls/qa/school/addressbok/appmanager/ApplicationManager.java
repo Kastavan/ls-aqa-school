@@ -1,6 +1,7 @@
 package ru.ls.qa.school.addressbok.appmanager;
 
 import com.codeborne.selenide.Selenide;
+import ru.ls.qa.school.addressbok.model.LoginData;
 
 public class ApplicationManager {
     private final GroupHelper groupHelper = new GroupHelper();
@@ -10,7 +11,7 @@ public class ApplicationManager {
 
     public void init() {
         Selenide.open("http://localhost/addressbook");
-        getSessionHelper().login("admin", "secret");
+        getSessionHelper().login(new LoginData("admin", "secret"));
     }
 
     public void stop() {

@@ -8,11 +8,11 @@ public class GroupCreationTests extends TestBase {
 
     @Test
     public void newTest() {
-        app.getNavigationHelper().gotoGroupPage();
-        app.getGroupHelper().initGroupCreation();
-        app.getGroupHelper().fillGroupForm(new GroupData("test1", "test2", "test3"));
-        app.getGroupHelper().submitGroupCreation();
-        app.getGroupHelper().returnToGroupPage();
+        pageManager.getContactsPage().openGroupPage();
+        pageManager.getGroupsListPage().initGroupCreation();
+        pageManager.getGroupPage().editForm(new GroupData("test1", "test2", "test3"));
+        pageManager.getGroupPage().submitCreation();
+        pageManager.getGroupPage().returnToGroups();
     }
 
 }

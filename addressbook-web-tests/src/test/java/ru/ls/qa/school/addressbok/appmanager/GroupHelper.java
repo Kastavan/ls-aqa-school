@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import ru.ls.qa.school.addressbok.model.GroupData;
 
 public class GroupHelper extends HelperBase {
-    public void returnToGroupPage() {
+    public void returnToGroupsPage() {
         click("i > a");
     }
 
