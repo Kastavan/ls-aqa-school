@@ -1,18 +1,30 @@
 package ru.ls.qa.school.addressbok.pages;
 
-import static ru.ls.qa.school.addressbok.tests.TestBase.app;
+import ru.ls.qa.school.addressbok.appmanager.ApplicationManager;
 
 public class PageManager {
-    private GroupPage groupPage = new GroupPage(app);
-    private ContactsPage contactsPage = new ContactsPage(app);
-    private GroupsListPage groupsListPage = new GroupsListPage(app);
-    private ContactPage contactPage = new ContactPage(app);
+
+    protected static ApplicationManager app;
+
+    private final GroupPage groupPage;
+    private final ContactsListPage contactsPage;
+    private final GroupsListPage groupsListPage;
+    private final ContactPage contactPage;
+
+    public PageManager(ApplicationManager app){
+        this.app = app;
+
+        groupPage = new GroupPage();
+        contactsPage = new ContactsListPage();
+        groupsListPage = new GroupsListPage();
+        contactPage = new ContactPage();
+    }
 
     public GroupPage getGroupPage() {
         return groupPage;
     }
 
-    public ContactsPage getContactsPage() {
+    public ContactsListPage contacts() {
         return contactsPage;
     }
 

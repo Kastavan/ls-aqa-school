@@ -4,9 +4,6 @@ import org.openqa.selenium.By;
 import ru.ls.qa.school.addressbok.model.GroupData;
 
 public class GroupHelper extends HelperBase {
-    public void returnToGroupsPage() {
-        click("i > a");
-    }
 
     public void submitGroupCreation() {
         click("input:nth-child(11)");
@@ -26,7 +23,7 @@ public class GroupHelper extends HelperBase {
         click("input[type=submit]:nth-child(2)");
     }
 
-    public void selectGroup() {
+    public void selectFirstGroup() {
         click("span:nth-child(5) > input[type=checkbox]");
     }
 

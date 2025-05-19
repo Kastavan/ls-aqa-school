@@ -4,4 +4,8 @@ public class NavigationHelper extends HelperBase {
     public void gotoGroupPage() {
         click(".admin > a");
     }
+
+    public void returnToGroupsPageFromCreation() {
+        click("i > a");
+    }
 }

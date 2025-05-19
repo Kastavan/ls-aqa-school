@@ -7,7 +7,7 @@ import ru.ls.qa.school.addressbok.pages.PageManager;
 
 public class TestBase {
     public static final ApplicationManager app = new ApplicationManager();
-    public static final PageManager pageManager = new PageManager();
+    public static final PageManager getPage = new PageManager(app);
 
     @BeforeAll
     static void openPage() {

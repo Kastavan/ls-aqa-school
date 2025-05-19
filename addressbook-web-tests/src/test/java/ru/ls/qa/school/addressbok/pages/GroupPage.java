@@ -5,24 +5,32 @@ import ru.ls.qa.school.addressbok.model.GroupData;
 
 public class GroupPage extends BasePage {
 
-    public GroupPage(ApplicationManager app) {
-        super(app);
+    public GroupPage editForm(GroupData groupData) {
+        app.getGroupHelper()
+           .fillGroupForm(groupData);
+        return this;
     }
 
-    public GroupPage editForm (GroupData groupData){
-        app.getGroupHelper().fillGroupForm(groupData);
+    public GroupPage submitCreation() {
+        app.getGroupHelper()
+           .submitGroupCreation();
         return this;
     }
-    public GroupPage submitCreation () {
-        app.getGroupHelper().submitGroupCreation();
-        return this;
+
+    public GroupsListPage returnToGroups() {
+        app.getNavigationHelper()
+           .returnToGroupsPageFromCreation();
+        return new GroupsListPage();
     }
-    public GroupPage returnToGroups() {
-        app.getGroupHelper().returnToGroupsPage();
-        return this;
+
+    public GroupsListPage finishCreation() {
+        return submitCreation()
+                .returnToGroups();
     }
-    public GroupPage submitGroupModification(){
-        app.getGroupHelper().submitGroupModification();
+
+    public GroupPage submitGroupModification() {
+        app.getGroupHelper()
+           .submitGroupModification();
         return this;
     }
 }

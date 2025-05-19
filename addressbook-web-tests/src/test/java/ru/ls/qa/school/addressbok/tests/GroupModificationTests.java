@@ -7,11 +7,11 @@ public class GroupModificationTests extends TestBase {
 
     @Test
     public void testGroupModification() {
-        pageManager.getContactsPage().openGroupPage();
-        pageManager.getGroupsListPage().selectGroup();
-        pageManager.getGroupsListPage().initGroupModification();
-        pageManager.getGroupPage().editForm(new GroupData("test1", "test2", "test3"));
-        pageManager.getGroupPage().submitGroupModification();
-        pageManager.getGroupPage().returnToGroups();
+        getPage.contacts().gotoGroups();
+        getPage.getGroupsListPage().selectFirstGroup();
+        getPage.getGroupsListPage().initGroupModification();
+        getPage.getGroupPage().editForm(new GroupData("test1", "test2", "test3"));
+        getPage.getGroupPage().submitGroupModification();
+        getPage.getGroupPage().returnToGroups();
     }
 }

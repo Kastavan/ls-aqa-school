@@ -1,26 +1,38 @@
 package ru.ls.qa.school.addressbok.pages;
 
-import ru.ls.qa.school.addressbok.appmanager.ApplicationManager;
-
 public class GroupsListPage extends BasePage {
-    public GroupsListPage(ApplicationManager app) {
-        super(app);
+
+    public GroupPage initGroupCreation() {
+        app.getGroupHelper()
+           .initGroupCreation();
+        return new GroupPage();
     }
-    public GroupsListPage initGroupCreation() {
-        app.getGroupHelper().initGroupCreation();
-        return this;
+
+    public GroupPage initGroupModification() {
+        app.getGroupHelper()
+           .initGroupModification();
+        return new GroupPage();
     }
-    public GroupsListPage selectGroup(){
-        app.getGroupHelper().selectGroup();
-        return this;
-    }
-    public GroupsListPage deleteGroup(){
-        app.getGroupHelper().deleteGroup();
-        return this;
-    }
-    public GroupsListPage initGroupModification(){
-        app.getGroupHelper().initGroupModification();
+
+    public GroupsListPage selectFirstGroup() {
+        app.getGroupHelper()
+           .selectFirstGroup();
         return this;
     }
 
+    public GroupsListPage initDeleteGroup() {
+        app.getGroupHelper()
+           .deleteGroup();
+        return this;
+    }
+
+    public GroupsListPage deleteFirstGroup() {
+        return selectFirstGroup().initDeleteGroup();
+    }
+
+    public GroupsListPage returnToGroups() {
+        app.getNavigationHelper()
+           .returnToGroupsPageFromCreation();
+        return new GroupsListPage();
+    }
 }
