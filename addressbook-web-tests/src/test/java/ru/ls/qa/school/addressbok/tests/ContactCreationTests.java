@@ -8,7 +8,7 @@ public class ContactCreationTests extends TestBase {
 
     ContactsListPage contactsPage;
 
-    @Test //TODO выстроить прочие методы в работу через цепочки, по аналогии с этим тестом
+    @Test
     public void newTest() {
 
         ContactData contact = new ContactData("Имя", "Адрес", "+7(999)999-99-99", "First@mail.com", "1980");

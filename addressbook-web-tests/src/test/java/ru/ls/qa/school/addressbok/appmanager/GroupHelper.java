@@ -1,37 +1,50 @@
 package ru.ls.qa.school.addressbok.appmanager;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import ru.ls.qa.school.addressbok.model.GroupData;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class GroupHelper extends HelperBase {
+    SelenideElement submitGroupCreationButton = $("input:nth-child(11)");
+    SelenideElement setGroupName = $(By.name("group_name"));
+    SelenideElement setGroupHeader = $(By.name("group_header"));
+    SelenideElement setGroupFooter = $(By.name("group_footer"));
+    SelenideElement initGroupCreationButton = $("form:nth-child(2) > input:nth-child(1)");
+    SelenideElement deleteGroupButton = $("input[type=submit]:nth-child(2)");
+    SelenideElement firstGroupSelectionCheckBox = $("span:nth-child(5) > input[type=checkbox]");
+    SelenideElement initGroupModificationButton = $("input[type=submit]:nth-child(3)");
+    SelenideElement submitGroupModificationButton = $("input[type=submit]:nth-child(12)");
+
 
     public void submitGroupCreation() {
-        click("input:nth-child(11)");
+        click(submitGroupCreationButton);
     }
 
     public void fillGroupForm(GroupData groupData) {
-        type(By.name("group_name"), groupData.name());
-        type(By.name("group_header"), groupData.header());
-        type(By.name("group_footer"), groupData.footer());
+        type(setGroupName, groupData.name());
+        type(setGroupHeader, groupData.header());
+        type(setGroupFooter, groupData.footer());
     }
 
     public void initGroupCreation() {
-        click("form:nth-child(2) > input:nth-child(1)");
+        click(initGroupCreationButton);
     }
 
     public void deleteGroup() {
-        click("input[type=submit]:nth-child(2)");
+        click(deleteGroupButton);
     }
 
     public void selectFirstGroup() {
-        click("span:nth-child(5) > input[type=checkbox]");
+        click(firstGroupSelectionCheckBox);
     }
 
     public void initGroupModification() {
-        click("input[type=submit]:nth-child(3)");
+        click(initGroupModificationButton);
     }
 
     public void submitGroupModification() {
-        click("input[type=submit]:nth-child(12)");
+        click(submitGroupModificationButton);
     }
 }
