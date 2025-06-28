@@ -6,11 +6,11 @@ import ru.ls.qa.school.addressbok.model.GroupData;
 import ru.ls.qa.school.addressbok.pages.ContactsListPage;
 
 public class GroupModificationTests extends TestBase {
-    ContactsListPage contactPage;
+    private ContactsListPage contactPage;
 
     @BeforeEach
     public void precondition() {
-        contactPage = getPage.contacts();
+        contactPage = getPage.getContactsPage();
     }
 
     @Test

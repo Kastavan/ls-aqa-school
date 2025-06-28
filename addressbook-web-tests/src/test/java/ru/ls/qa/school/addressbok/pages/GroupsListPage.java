@@ -4,13 +4,13 @@ public class GroupsListPage extends BasePage {
 
     public GroupPage initGroupCreation() {
         app.getGroupHelper()
-           .initGroupCreation();
+           .clickCreateGroupBtn();
         return new GroupPage();
     }
 
     public GroupPage initGroupModification() {
         app.getGroupHelper()
-           .initGroupModification();
+           .clickModificationGroupBtn();
         return new GroupPage();
     }
 
@@ -22,7 +22,7 @@ public class GroupsListPage extends BasePage {
 
     public GroupsListPage initDeleteGroup() {
         app.getGroupHelper()
-           .deleteGroup();
+           .clickDeleteGroupBtn();
         return this;
     }
 
@@ -33,6 +33,6 @@ public class GroupsListPage extends BasePage {
     public GroupsListPage returnToGroups() {
         app.getNavigationHelper()
            .returnToGroupsPageFromCreation();
-        return new GroupsListPage();
+        return this;
     }
 }

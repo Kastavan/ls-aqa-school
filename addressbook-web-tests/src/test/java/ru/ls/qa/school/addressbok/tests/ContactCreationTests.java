@@ -7,17 +7,17 @@ import ru.ls.qa.school.addressbok.pages.ContactsListPage;
 
 public class ContactCreationTests extends TestBase {
 
-    ContactsListPage contactsPage;
+    private ContactsListPage contactsPage;
 
     @BeforeEach
     public void precondition() {
-        contactsPage = getPage.contacts();
+        contactsPage = getPage.getContactsPage();
     }
 
     @Test
     public void newTest() {
 
-        ContactData contact = new ContactData("Имя", "Адрес", "+7(999)999-99-99", "First@mail.com", "1980");
+        ContactData contact = new ContactData("Имя", "+7(999)999-99-99");
 
         contactsPage
                 .addNewContact()

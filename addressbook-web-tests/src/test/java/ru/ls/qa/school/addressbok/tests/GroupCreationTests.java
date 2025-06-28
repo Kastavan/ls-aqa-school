@@ -7,11 +7,11 @@ import ru.ls.qa.school.addressbok.pages.ContactsListPage;
 
 public class GroupCreationTests extends TestBase {
 
-    ContactsListPage contactsPage;
+    private ContactsListPage contactsPage;
 
     @BeforeEach
     public void precondition() {
-        contactsPage = getPage.contacts();
+        contactsPage = getPage.getContactsPage();
     }
 
     @Test

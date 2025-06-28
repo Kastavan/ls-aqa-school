@@ -24,7 +24,7 @@ public class PageManager {
         return groupPage;
     }
 
-    public ContactsListPage contacts() {
+    public ContactsListPage getContactsPage() {
         return contactsPage;
     }
 

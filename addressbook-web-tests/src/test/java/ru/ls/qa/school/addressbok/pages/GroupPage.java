@@ -1,6 +1,5 @@
 package ru.ls.qa.school.addressbok.pages;
 
-import ru.ls.qa.school.addressbok.appmanager.ApplicationManager;
 import ru.ls.qa.school.addressbok.model.GroupData;
 
 public class GroupPage extends BasePage {
@@ -13,7 +12,7 @@ public class GroupPage extends BasePage {
 
     public GroupPage submitCreation() {
         app.getGroupHelper()
-           .submitGroupCreation();
+           .clickSubmitGroupCreationBtn();
         return this;
     }
 
@@ -22,15 +21,15 @@ public class GroupPage extends BasePage {
            .returnToGroupsPageFromCreation();
         return new GroupsListPage();
     }
-
-    public GroupsListPage finishCreation() {
-        return submitCreation()
-                .returnToGroups();
-    }
+    //метод создан для примера, пока сохранен для наглядности
+    //public GroupsListPage finishCreation() {
+    //    return submitCreation()
+    //            .returnToGroups();
+    //}
 
     public GroupPage submitGroupModification() {
         app.getGroupHelper()
-           .submitGroupModification();
+           .clickSubmitGroupModificationBtn();
         return this;
     }
 }

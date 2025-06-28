@@ -4,12 +4,13 @@ import com.codeborne.selenide.SelenideElement;
 import ru.ls.qa.school.addressbok.model.LoginData;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class SessionHelper extends HelperBase {
-    SelenideElement setUser = $("input:nth-child(2)");
-    SelenideElement setPassword = $("input:nth-child(5)");
-    SelenideElement loginButton = $("input:nth-child(7)");
-    SelenideElement logoutButton = $(".header > a");
+    private SelenideElement setUser = $("input[name='user']");
+    private SelenideElement setPassword = $("input[name='pass']");
+    private SelenideElement loginButton = $("input[value='Login']");
+    private SelenideElement logoutButton = $x("//a[contains(text(),'Logout')]");
 
     public void login(LoginData loginData) {
         type(setUser, loginData.username());

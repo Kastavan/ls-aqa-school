@@ -1,6 +1,5 @@
 package ru.ls.qa.school.addressbok.pages;
 
-import ru.ls.qa.school.addressbok.appmanager.ApplicationManager;
 import ru.ls.qa.school.addressbok.model.ContactData;
 
 public class ContactPage extends BasePage{
@@ -10,7 +9,7 @@ public class ContactPage extends BasePage{
         return this;
     }
     public ContactPage submitNewContact() {
-        app.getContactHelper().submitNewContact();
+        app.getContactHelper().clickSubmitContactBtn();
         return this;
     }
 }

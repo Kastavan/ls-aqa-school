@@ -7,18 +7,18 @@ import ru.ls.qa.school.addressbok.model.GroupData;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupHelper extends HelperBase {
-    SelenideElement submitGroupCreationButton = $("input:nth-child(11)");
-    SelenideElement setGroupName = $(By.name("group_name"));
-    SelenideElement setGroupHeader = $(By.name("group_header"));
-    SelenideElement setGroupFooter = $(By.name("group_footer"));
-    SelenideElement initGroupCreationButton = $("form:nth-child(2) > input:nth-child(1)");
-    SelenideElement deleteGroupButton = $("input[type=submit]:nth-child(2)");
-    SelenideElement firstGroupSelectionCheckBox = $("span:nth-child(5) > input[type=checkbox]");
-    SelenideElement initGroupModificationButton = $("input[type=submit]:nth-child(3)");
-    SelenideElement submitGroupModificationButton = $("input[type=submit]:nth-child(12)");
+    private SelenideElement submitGroupCreationButton = $("input[name='submit']");
+    private SelenideElement setGroupName = $(By.name("group_name"));
+    private SelenideElement setGroupHeader = $(By.name("group_header"));
+    private SelenideElement setGroupFooter = $(By.name("group_footer"));
+    private SelenideElement initGroupCreationButton = $("input[name='new']");
+    private SelenideElement deleteGroupButton = $("input[name='delete']");
+    private SelenideElement firstGroupSelectionCheckBox = $("input[type=checkbox]");
+    private SelenideElement initGroupModificationButton = $("input[name='edit']");
+    private SelenideElement submitGroupModificationButton = $("input[name='update']");
 
 
-    public void submitGroupCreation() {
+    public void clickSubmitGroupCreationBtn() {
         click(submitGroupCreationButton);
     }
 
@@ -28,11 +28,11 @@ public class GroupHelper extends HelperBase {
         type(setGroupFooter, groupData.footer());
     }
 
-    public void initGroupCreation() {
+    public void clickCreateGroupBtn() {
         click(initGroupCreationButton);
     }
 
-    public void deleteGroup() {
+    public void clickDeleteGroupBtn() {
         click(deleteGroupButton);
     }
 
@@ -40,11 +40,11 @@ public class GroupHelper extends HelperBase {
         click(firstGroupSelectionCheckBox);
     }
 
-    public void initGroupModification() {
+    public void clickModificationGroupBtn() {
         click(initGroupModificationButton);
     }
 
-    public void submitGroupModification() {
+    public void clickSubmitGroupModificationBtn() {
         click(submitGroupModificationButton);
     }
 }

@@ -9,10 +9,12 @@ public interface WebDriverConfig extends Config {
     @Key("baseUrl")
     @DefaultValue("http://localhost/addressbook/")
     String getBaseUrl();
-    @Key("Browser")
+
+    @Key("browser")
     @DefaultValue("CHROME")
     Browser getBrowser();
-    @Key("RemoteURL")
+
+    @Key("remoteURL")
     @DefaultValue("http://localhost:4444")
     URL getRemoteURL();
 }
