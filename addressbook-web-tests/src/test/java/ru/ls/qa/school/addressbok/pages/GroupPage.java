@@ -32,4 +32,11 @@ public class GroupPage extends BasePage {
            .clickSubmitGroupModificationBtn();
         return this;
     }
+
+
+    public GroupsListPage createGroup(){
+         return editForm(new GroupData("test1", "test2", "test3"))
+                .submitCreation()
+                .returnToGroups();
+    }
 }

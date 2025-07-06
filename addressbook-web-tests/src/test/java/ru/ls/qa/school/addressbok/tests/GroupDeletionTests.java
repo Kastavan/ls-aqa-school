@@ -6,11 +6,15 @@ import ru.ls.qa.school.addressbok.pages.GroupsListPage;
 
 public class GroupDeletionTests extends TestBase {
 
-    private static GroupsListPage page;
+    private static GroupsListPage groupsPage;
 
     @BeforeEach
     public void precondition(){
-        page = getPage.getContactsPage().gotoGroups();
+        app.getNavigationHelper().goToGroupPage();
+        groupsPage = getPage.getGroupsListPage();
+        if (! app.getGroupHelper().isGroupExist()){
+            groupsPage.initGroupCreation().createGroup();
+        }
         // Здесь далее появится проверка наличия группы и ее создания, если ее нет.
         // Это нас переместит по ряду страниц. ВАЖНО чтобы мы на момент начала теста оказались на нужной странице
         // Поэтому мы сохраняем результат в переменную page чтобы продолжить работу в тесте с последней страницы
@@ -18,7 +22,7 @@ public class GroupDeletionTests extends TestBase {
 
     @Test
     public void testGroupDeletion() {
-        page
+        groupsPage
         .selectFirstGroup()
         .initDeleteGroup()
         .returnToGroups();

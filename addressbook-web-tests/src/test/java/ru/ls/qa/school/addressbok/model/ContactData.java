@@ -1,4 +1,4 @@
 package ru.ls.qa.school.addressbok.model;
 
-public record ContactData(String firstName, String homePhone) {
+public record ContactData(String firstName, String homePhone, String group) {
 }

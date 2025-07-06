@@ -3,21 +3,24 @@ package ru.ls.qa.school.addressbok.tests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.ls.qa.school.addressbok.model.GroupData;
-import ru.ls.qa.school.addressbok.pages.ContactsListPage;
+import ru.ls.qa.school.addressbok.pages.GroupsListPage;
 
 public class GroupModificationTests extends TestBase {
-    private ContactsListPage contactPage;
+    private GroupsListPage groupsPage;
 
     @BeforeEach
     public void precondition() {
-        contactPage = getPage.getContactsPage();
+        app.getNavigationHelper().goToGroupPage();
+        groupsPage = getPage.getGroupsListPage();
+        if (! app.getGroupHelper().isGroupExist()){
+            groupsPage.initGroupCreation().createGroup();
+        }
     }
 
     @Test
     public void testGroupModification() {
 
-        contactPage.gotoGroups()
-                .selectFirstGroup()
+        groupsPage.selectFirstGroup()
                 .initGroupModification()
                 .editForm(new GroupData("test1", "test2", "test3"))
                 .submitGroupModification()

@@ -11,17 +11,18 @@ public class ContactCreationTests extends TestBase {
 
     @BeforeEach
     public void precondition() {
+        app.getNavigationHelper().goToContactPage();
         contactsPage = getPage.getContactsPage();
     }
 
     @Test
-    public void newTest() {
+    public void testCreateContact() {
 
-        ContactData contact = new ContactData("Имя", "+7(999)999-99-99");
+        ContactData contact = new ContactData("Имя", "+7(999)999-99-99", "test1");
 
         contactsPage
                 .addNewContact()
-                .fillContactForm(contact)
+                .fillContactForm(contact, true)
                 .submitNewContact();
     }
 }

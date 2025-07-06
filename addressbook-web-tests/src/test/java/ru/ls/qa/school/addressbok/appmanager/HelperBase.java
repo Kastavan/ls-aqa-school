@@ -16,4 +16,8 @@ public class HelperBase {
     protected void selectDropDown(SelenideElement element, String position) {
         element.selectOptionByValue(position);
     }
+
+    protected boolean isElementPresent(By locator){
+       return $(locator).exists();
+    }
 }

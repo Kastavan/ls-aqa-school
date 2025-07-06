@@ -6,4 +6,8 @@ public class ContactsListPage extends BasePage{
         app.getContactHelper().clickCreateContactBtn();
         return new ContactPage();
     }
+    public ContactPage editContact(){
+        app.getContactHelper().clickEditContactBtn();
+        return new ContactPage();
+    }
 }

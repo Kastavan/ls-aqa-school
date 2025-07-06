@@ -1,6 +1,7 @@
 package ru.ls.qa.school.addressbok.config;
 
 import org.aeonbits.owner.Config;
+import ru.ls.qa.school.addressbok.enums.Browser;
 
 import java.net.URL;
 

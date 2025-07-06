@@ -47,4 +47,7 @@ public class GroupHelper extends HelperBase {
     public void clickSubmitGroupModificationBtn() {
         click(submitGroupModificationButton);
     }
+    public boolean isGroupExist(){
+        return isElementPresent(By.cssSelector("input[type=checkbox]"));
+    }
 }

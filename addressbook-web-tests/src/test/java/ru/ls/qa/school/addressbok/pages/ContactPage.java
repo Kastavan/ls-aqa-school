@@ -4,12 +4,16 @@ import ru.ls.qa.school.addressbok.model.ContactData;
 
 public class ContactPage extends BasePage{
 
-    public ContactPage fillContactForm(ContactData contactData){
-        app.getContactHelper().fillContactForm(contactData);
+    public ContactPage fillContactForm(ContactData contactData, boolean creation){
+        app.getContactHelper().fillContactForm(contactData, creation);
         return this;
     }
     public ContactPage submitNewContact() {
         app.getContactHelper().clickSubmitContactBtn();
+        return this;
+    }
+    public ContactPage updateContact() {
+        app.getContactHelper().clickUpdateContactBtn();
         return this;
     }
 }

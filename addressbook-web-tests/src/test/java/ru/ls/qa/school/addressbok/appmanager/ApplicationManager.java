@@ -13,7 +13,6 @@ public class ApplicationManager {
     private final ContactHelper contactHelper = new ContactHelper();
     private final SessionHelper sessionHelper = new SessionHelper();
 
-    //уточнить корректность на Q&A
     public ApplicationManager() {
         this.config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
     }

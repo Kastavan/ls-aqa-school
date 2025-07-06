@@ -1,4 +1,4 @@
-package ru.ls.qa.school.addressbok.config;
+package ru.ls.qa.school.addressbok.enums;
 
 public enum Browser {
     CHROME,

@@ -4,16 +4,14 @@ import ru.ls.qa.school.addressbok.appmanager.ApplicationManager;
 
 public class PageManager {
 
-    protected static ApplicationManager app;
+
 
     private final GroupPage groupPage;
     private final ContactsListPage contactsPage;
     private final GroupsListPage groupsListPage;
     private final ContactPage contactPage;
 
-    public PageManager(ApplicationManager app){
-        this.app = app;
-
+    public PageManager(){
         groupPage = new GroupPage();
         contactsPage = new ContactsListPage();
         groupsListPage = new GroupsListPage();
