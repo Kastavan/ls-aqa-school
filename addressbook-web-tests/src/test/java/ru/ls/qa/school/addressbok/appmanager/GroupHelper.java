@@ -1,10 +1,15 @@
 package ru.ls.qa.school.addressbok.appmanager;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import ru.ls.qa.school.addressbok.model.GroupData;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class GroupHelper extends HelperBase {
     private SelenideElement submitGroupCreationButton = $("input[name='submit']");
@@ -13,7 +18,6 @@ public class GroupHelper extends HelperBase {
     private SelenideElement setGroupFooter = $(By.name("group_footer"));
     private SelenideElement initGroupCreationButton = $("input[name='new']");
     private SelenideElement deleteGroupButton = $("input[name='delete']");
-    private SelenideElement firstGroupSelectionCheckBox = $("input[type=checkbox]");
     private SelenideElement initGroupModificationButton = $("input[name='edit']");
     private SelenideElement submitGroupModificationButton = $("input[name='update']");
 
@@ -36,8 +40,8 @@ public class GroupHelper extends HelperBase {
         click(deleteGroupButton);
     }
 
-    public void selectFirstGroup() {
-        click(firstGroupSelectionCheckBox);
+    public void selectGroupByIndex(int index) {
+        $$(By.cssSelector("input[type=checkbox]")).get(index).click();
     }
 
     public void clickModificationGroupBtn() {
@@ -47,7 +51,18 @@ public class GroupHelper extends HelperBase {
     public void clickSubmitGroupModificationBtn() {
         click(submitGroupModificationButton);
     }
-    public boolean isGroupExist(){
+
+    public boolean isGroupExist() {
         return isElementPresent(By.cssSelector("input[type=checkbox]"));
+    }
+    public List<GroupData> getGroupsList() {
+        List<GroupData> groups = new ArrayList<>();
+        ElementsCollection elements = $$(By.cssSelector("span.group"));
+        for (SelenideElement element : elements) {
+            String name = element.getText();
+            GroupData group = new GroupData(name, null, null);
+            groups.add(group);
+        }
+        return groups;
     }
 }

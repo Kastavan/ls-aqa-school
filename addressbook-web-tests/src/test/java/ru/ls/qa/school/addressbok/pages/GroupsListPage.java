@@ -14,9 +14,9 @@ public class GroupsListPage extends BasePage {
         return new GroupPage();
     }
 
-    public GroupsListPage selectFirstGroup() {
+    public GroupsListPage selectGroupByIndex(int index) {
         app.getGroupHelper()
-           .selectFirstGroup();
+           .selectGroupByIndex(index);
         return this;
     }
 
@@ -25,11 +25,6 @@ public class GroupsListPage extends BasePage {
            .clickDeleteGroupBtn();
         return this;
     }
-
-    public GroupsListPage deleteFirstGroup() {
-        return selectFirstGroup().initDeleteGroup();
-    }
-
     public GroupsListPage returnToGroups() {
         app.getNavigationHelper()
            .returnToGroupsPageFromCreation();

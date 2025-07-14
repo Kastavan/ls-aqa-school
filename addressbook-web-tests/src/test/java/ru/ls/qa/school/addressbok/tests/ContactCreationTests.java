@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import ru.ls.qa.school.addressbok.model.ContactData;
 import ru.ls.qa.school.addressbok.pages.ContactsListPage;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class ContactCreationTests extends TestBase {
 
     private ContactsListPage contactsPage;
@@ -19,10 +21,13 @@ public class ContactCreationTests extends TestBase {
     public void testCreateContact() {
 
         ContactData contact = new ContactData("Имя", "+7(999)999-99-99", "test1");
-
+        int before = app.getContactHelper().getContactsCount();
         contactsPage
                 .addNewContact()
                 .fillContactForm(contact, true)
-                .submitNewContact();
+                .submitNewContact()
+                .returnToContacts();
+        int after = app.getContactHelper().getContactsCount();
+        assertThat(after).isEqualTo(before + 1);
     }
 }

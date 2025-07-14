@@ -16,4 +16,14 @@ public class ContactPage extends BasePage{
         app.getContactHelper().clickUpdateContactBtn();
         return this;
     }
+    public ContactsListPage returnToContacts() {
+        app.getNavigationHelper()
+                .returnToContactsPageFromCreation();
+        return new ContactsListPage();
+    }
+    public ContactsListPage createContact(){
+        return fillContactForm(new ContactData("Имя", "+7(999)999-99-99", "test1"), true)
+                .submitNewContact()
+                .returnToContacts();
+    }
 }

@@ -10,6 +10,7 @@ public class NavigationHelper extends HelperBase {
     private SelenideElement goToGroupPageButton = $x("//a[text()='groups']");
     private SelenideElement returnToGroupsPageFromCreationButton = $x("//a[text()='group page']");
     private SelenideElement goToContactPageButton = $x("//a[text()='home']");
+    private SelenideElement returnToContactPageFromCreationButton = $x("//a[text()='home page']");
 
     public void goToGroupPage() {
         if(isElementPresent(By.tagName("h1"))
@@ -29,5 +30,8 @@ public class NavigationHelper extends HelperBase {
             return;
         }
         click(goToContactPageButton);
+    }
+    public void returnToContactsPageFromCreation() {
+        click(returnToContactPageFromCreationButton);
     }
 }

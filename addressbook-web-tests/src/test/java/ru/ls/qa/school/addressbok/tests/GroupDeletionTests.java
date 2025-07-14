@@ -2,7 +2,12 @@ package ru.ls.qa.school.addressbok.tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.ls.qa.school.addressbok.model.GroupData;
 import ru.ls.qa.school.addressbok.pages.GroupsListPage;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class GroupDeletionTests extends TestBase {
 
@@ -22,10 +27,13 @@ public class GroupDeletionTests extends TestBase {
 
     @Test
     public void testGroupDeletion() {
+        List<GroupData> before = app.getGroupHelper().getGroupsList();
         groupsPage
-        .selectFirstGroup()
+        .selectGroupByIndex(0)
         .initDeleteGroup()
         .returnToGroups();
+        List<GroupData> after = app.getGroupHelper().getGroupsList();
+        assertThat(after.size()).isEqualTo(before.size() - 1);
     }
 
 }
