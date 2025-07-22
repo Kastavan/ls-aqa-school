@@ -60,7 +60,8 @@ public class GroupHelper extends HelperBase {
         ElementsCollection elements = $$(By.cssSelector("span.group"));
         for (SelenideElement element : elements) {
             String name = element.getText();
-            GroupData group = new GroupData(name, null, null);
+            int id = Integer.parseInt(element.$(By.tagName("Input")).getAttribute("value"));
+            GroupData group = new GroupData(id, name, null, null);
             groups.add(group);
         }
         return groups;

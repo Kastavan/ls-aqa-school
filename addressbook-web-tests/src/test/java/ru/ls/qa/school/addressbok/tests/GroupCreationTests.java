@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import ru.ls.qa.school.addressbok.model.GroupData;
 import ru.ls.qa.school.addressbok.pages.GroupsListPage;
 
+import java.util.Comparator;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,11 +23,20 @@ public class GroupCreationTests extends TestBase {
     @Test
     public void testCreateGroup() {
         List<GroupData> before = app.getGroupHelper().getGroupsList();
+        GroupData group = new GroupData("test1", "test2", "test3");
         groupsPage.initGroupCreation()
-                .createGroup()
+                .editForm(group)
+                .submitCreation()
                 .returnToGroups();
         List<GroupData> after = app.getGroupHelper().getGroupsList();
         assertThat(after.size()).isEqualTo(before.size() + 1);
+
+        group = group.setId(after.stream().max(Comparator.comparingInt(GroupData::getId)).get().getId());
+        before.add(group);
+        Comparator<? super GroupData> byID = Comparator.comparingInt(GroupData::getId);
+        before.sort(byID);
+        after.sort(byID);
+        assertThat(before).isEqualTo(after);
     }
 
 }
