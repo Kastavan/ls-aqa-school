@@ -23,10 +23,22 @@
         <selenide.version>7.7.3</selenide.version>
         <junit-jupiter.version>5.11.3</junit-jupiter.version>
         <assertj.version>3.26.3</assertj.version>
+        <jNotUnit-core.version>release-1.05</jNotUnit-core.version>
     </properties>
 
-    <dependencies>
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.13nadcatiy</groupId>
+            <artifactId>jNotUnit-core</artifactId>
+            <version>${jNotUnit-core.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
@@ -48,6 +60,18 @@
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+            <version>1.0.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>6.1.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
