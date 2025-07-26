@@ -24,6 +24,7 @@
         <junit-jupiter.version>5.11.3</junit-jupiter.version>
         <assertj.version>3.26.3</assertj.version>
         <jNotUnit-core.version>release-1.05</jNotUnit-core.version>
+        <lombok.version>1.18.36</lombok.version>
     </properties>
 
     <repositories>
@@ -73,6 +74,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>6.1.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
